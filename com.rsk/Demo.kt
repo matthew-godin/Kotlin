@@ -20,6 +20,18 @@ fun main(args: Array<String>) {
     println(arr2[2])
     println("Name is ${arr3[0]} ${arr3[1]}")
     println("Bob".uppercase())
+    if (total == 3) {
+        println(1)
+    } else if (total == 45) {
+        println(5)
+    } else {
+        println(6)
+    }
+    when (total) {
+        3 -> println(1)
+        45 -> println(5)
+        else -> println(6)
+    }
 }
 
 fun sum(a: Int, b: Int): Int {
