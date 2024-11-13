@@ -19,6 +19,7 @@ fun main(args: Array<String>) {
     val arr3 = arrayOf<String>("Bob", "Smith")
     println(arr2[2])
     println("Name is ${arr3[0]} ${arr3[1]}")
+    println("Bob".uppercase())
 }
 
 fun sum(a: Int, b: Int): Int {
