@@ -15,6 +15,10 @@ fun main(args: Array<String>) {
     println(total)
     println(longNumber)
     println(48/23.toDouble())
+    val arr2 = intArrayOf(1, 2, 3, 4, 5)
+    val arr3 = arrayOf<String>("Bob", "Smith")
+    println(arr2[2])
+    println("Name is ${arr3[0]} ${arr3[1]}")
 }
 
 fun sum(a: Int, b: Int): Int {
