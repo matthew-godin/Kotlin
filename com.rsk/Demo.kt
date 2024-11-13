@@ -1,5 +1,8 @@
 package com.rsk
 
+var num: Int = 3
+val total = 45
+
 fun main(args: Array<String>) {
     for (a in args) {
         println(a)
@@ -7,6 +10,8 @@ fun main(args: Array<String>) {
     println()
     println(sum(32, 24))
     println(sum2(1, 1))
+    println(num)
+    println(total)
 }
 
 fun sum(a: Int, b: Int): Int {
