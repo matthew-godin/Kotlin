@@ -32,6 +32,14 @@ fun main(args: Array<String>) {
         45 -> println(5)
         else -> println(6)
     }
+    // single line
+    /* multiple
+    lines */
+    /**
+    * Documentation
+    * @param
+    * @return
+    */
 }
 
 fun sum(a: Int, b: Int): Int {
