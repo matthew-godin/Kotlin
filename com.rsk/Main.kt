@@ -5,5 +5,6 @@ fun main() {
 
     // no 'new' keyword in Kotlin
     val earth = Planet("Earth", false)
-    println("planet is ${earth.name}")
+    //println("planet is ${earth.name}")
+    println(earth.nameFormatted)
 }
