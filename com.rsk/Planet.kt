@@ -1,5 +1,14 @@
 package com.rsk
 
+@JvmInline
+value class Score(val score: Int) {
+    init {
+        if (score < 0 || score > 100) {
+            throw IllegalArgumentException()
+        }
+    }
+}
+
 interface Body {
     fun someMethod(message: String)
 }
@@ -35,7 +44,7 @@ open class Planet(name: String, val gaseous: Boolean = false) : SpaceBody(name) 
     }
 }
 
-class HabitablePlanet(name: String, gaseous: Boolean = false) : Planet(name, gaseous) {
+class HabitablePlanet(name: String, gaseous: Boolean = false, val score: Score) : Planet(name, gaseous) {
     override fun myMethod(): String {
         return super.myMethod() + " and habitable"
     }
