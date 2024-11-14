@@ -1,3 +1,7 @@
 package com.rsk
 
-class Planet
+class Planet(val name: String) {
+    init {
+        println("Created")
+    }
+}
