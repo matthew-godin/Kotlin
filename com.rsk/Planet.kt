@@ -1,6 +1,8 @@
 package com.rsk
 
-class Planet(val name: String, val gaseous: Boolean = false) {
+open class SpaceBody(val name: String)
+
+open class Planet(name: String, val gaseous: Boolean = false) : SpaceBody(name) {
     init {
         println("Created")
     }
@@ -14,7 +16,13 @@ class Planet(val name: String, val gaseous: Boolean = false) {
         return "private method"
     }
 
-    fun myMethod(): String {
+    open fun myMethod(): String {
         return if (gaseous) "$name is gaseous" else "$name is not gaseous"
+    }
+}
+
+class HabitablePlanet(name: String, gaseous: Boolean = false) : Planet(name, gaseous) {
+    override fun myMethod(): String {
+        return super.myMethod() + " and habitable"
     }
 }
