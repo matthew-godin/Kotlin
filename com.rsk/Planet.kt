@@ -1,6 +1,6 @@
 package com.rsk
 
-class Planet(val name: String, gaseous: Boolean = false) {
+class Planet(val name: String, val gaseous: Boolean = false) {
     init {
         println("Created")
     }
@@ -9,4 +9,12 @@ class Planet(val name: String, gaseous: Boolean = false) {
 
     // secondary constructor
     //constructor(name: String, gaseous: Boolean) : this(name)
+
+    private fun myPrivateMethod(): String {
+        return "private method"
+    }
+
+    fun myMethod(): String {
+        return if (gaseous) "$name is gaseous" else "$name is not gaseous"
+    }
 }
