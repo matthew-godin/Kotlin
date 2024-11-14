@@ -1,6 +1,10 @@
 package com.rsk
 
-abstract class SpaceBody(val name: String) {
+interface Body {
+    fun someMethod(message: String)
+}
+
+abstract class SpaceBody(val name: String) : Body {
     abstract fun calculateMotion()
 }
 
@@ -23,6 +27,10 @@ open class Planet(name: String, val gaseous: Boolean = false) : SpaceBody(name) 
     }
 
     override fun calculateMotion() {
+        TODO("Not yet implemented")
+    }
+
+    override fun someMethod(message: String) {
         TODO("Not yet implemented")
     }
 }
