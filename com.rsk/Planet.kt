@@ -1,6 +1,8 @@
 package com.rsk
 
-open class SpaceBody(val name: String)
+abstract class SpaceBody(val name: String) {
+    abstract fun calculateMotion()
+}
 
 open class Planet(name: String, val gaseous: Boolean = false) : SpaceBody(name) {
     init {
@@ -18,6 +20,10 @@ open class Planet(name: String, val gaseous: Boolean = false) : SpaceBody(name) 
 
     open fun myMethod(): String {
         return if (gaseous) "$name is gaseous" else "$name is not gaseous"
+    }
+
+    override fun calculateMotion() {
+        TODO("Not yet implemented")
     }
 }
 
