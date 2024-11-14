@@ -4,6 +4,6 @@ fun main() {
     println("Started ...")
 
     // no 'new' keyword in Kotlin
-    val earth = Planet("Earth")
+    val earth = Planet("Earth", false)
     println("planet is ${earth.name}")
 }
