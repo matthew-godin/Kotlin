@@ -22,4 +22,26 @@ fun main() {
     for (i in 1..10) {
         println(i)
     }
+    for (i in 10 downTo 1) {
+        println(i)
+    }
+    for (i in 1..10 step 2) {
+        println(i)
+    }
+    for (i in 1 until 10) {
+        println(i)
+    }
+    for ((i, v) in numbers.withIndex()) {
+        println("$v at $i")
+    }
+
+    // constant because never changing reference
+    val people = HashMap<String, Int>()
+
+    people["Sam"] = 31
+    people["Bob"] = 42
+
+    for ((name, age) in people) {
+        println("$name is $age")
+    }
 }
