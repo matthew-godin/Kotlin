@@ -17,6 +17,8 @@ data class Point(val x: Int, val y: Int) {
 
 infix fun Int.plus(a: Int): Int = this + a
 
+operator fun Point.plus(point: Point): Point = Point(this.x + point.x, this.y + point.y)
+
 fun main() {
     println(max(4, 3))
 
@@ -29,4 +31,6 @@ fun main() {
     println(Point(4, 5) add Point(3, 3))
 
     println(4 plus 5)
+
+    println(Point(6, 2) + Point(3, 3))
 }
