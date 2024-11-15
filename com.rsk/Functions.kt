@@ -11,8 +11,12 @@ fun String.pad(numberToReplace: Int, replacementChar: Char = ' '): String {
 
 data class Point(val x: Int, val y: Int) {
     infix fun add(point: Point): Point {
-    return Point(this.x + point.x, this.y + point.y)
+        return Point(this.x + point.x, this.y + point.y)
+    }
 }
+
+infix fun Int.plus(a: Int): Int {
+    return this + a
 }
 
 fun main() {
@@ -25,4 +29,6 @@ fun main() {
     println(newerString)
 
     println(Point(4, 5) add Point(3, 3))
+
+    println(4 plus 5)
 }
