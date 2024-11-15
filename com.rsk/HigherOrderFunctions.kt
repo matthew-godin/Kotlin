@@ -1,27 +1,57 @@
 package com.rsk
 
+import java.time.LocalDate
+
 interface Process {
     fun execute(value: Int)
 }
 
+class Meeting {
+    var Title: String = ""
+    var When: LocalDate = LocalDate.MIN
+    var Who = mutableListOf<String>()
+
+    fun create(){}
+}
+
 fun main() {
-    fibonacci(8)
+    /*fibonacci(8)
     fibonacci2(8, object : Process {
         override fun execute(value: Int) {
             println(value)
         }
-    })
+    })*/
     //fibonacci3(8, {n -> println(n)})
     //fibonacci3(8, {println(it)})
     //fibonacci3(8) {println(it)}
-    fibonacci3(8, ::println)
+    /*fibonacci3(8, ::println)
 
     var total = 0
 
     // Kotlin closures, not easily done in Java
     fibonacci3(8) { total += it }
 
-    println(total)
+    println(total)*/
+
+    val boardMeeting = Meeting()
+
+    /*boardMeeting.Title = "Board Meeting"
+    boardMeeting.When = LocalDate.now()
+    boardMeeting.Who.add("Kevin")*/
+
+    // simpler approach using with
+    with(boardMeeting) {
+        Title = "Board Meeting"
+        When = LocalDate.now()
+        Who.add("Kevin")
+    }
+
+    // simpler approach using apply (difference with 'with' is that it returns the instance)
+    boardMeeting.apply {
+        Title = "Board Meeting"
+        When = LocalDate.now()
+        Who.add("Kevin")
+    }.create()
 }
 
 // strategy pattern using higher order function 
