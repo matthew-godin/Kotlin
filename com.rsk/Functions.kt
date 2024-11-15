@@ -15,9 +15,7 @@ data class Point(val x: Int, val y: Int) {
     }
 }
 
-infix fun Int.plus(a: Int): Int {
-    return this + a
-}
+infix fun Int.plus(a: Int): Int = this + a
 
 fun main() {
     println(max(4, 3))
