@@ -9,6 +9,12 @@ fun String.pad(numberToReplace: Int, replacementChar: Char = ' '): String {
     return this + strToAdd
 }
 
+data class Point(val x: Int, val y: Int) {
+    infix fun add(point: Point): Point {
+    return Point(this.x + point.x, this.y + point.y)
+}
+}
+
 fun main() {
     println(max(4, 3))
 
@@ -18,5 +24,5 @@ fun main() {
 
     println(newerString)
 
-    println(Point(4, 5) add Point(3, 6))
+    println(Point(4, 5) add Point(3, 3))
 }
