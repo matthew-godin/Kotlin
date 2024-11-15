@@ -15,6 +15,13 @@ fun main() {
     //fibonacci3(8, {println(it)})
     //fibonacci3(8) {println(it)}
     fibonacci3(8, ::println)
+
+    var total = 0
+
+    // Kotlin closures, not easily done in Java
+    fibonacci3(8) { total += it }
+
+    println(total)
 }
 
 // strategy pattern using higher order function 
