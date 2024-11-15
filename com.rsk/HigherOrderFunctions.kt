@@ -1,17 +1,24 @@
 package com.rsk
 
 import java.time.LocalDate
+import java.io.Closeable
 
 interface Process {
     fun execute(value: Int)
 }
 
-class Meeting {
+class Meeting : Closeable {
     var Title: String = ""
     var When: LocalDate = LocalDate.MIN
     var Who = mutableListOf<String>()
 
-    fun create(){}
+    fun create(){
+        println("created")
+    }
+
+    override fun close() {
+        println("was closed")
+    }
 }
 
 fun main() {
@@ -33,7 +40,7 @@ fun main() {
 
     println(total)*/
 
-    val boardMeeting = Meeting()
+    /*val boardMeeting = Meeting()
 
     /*boardMeeting.Title = "Board Meeting"
     boardMeeting.When = LocalDate.now()
@@ -51,7 +58,11 @@ fun main() {
         Title = "Board Meeting"
         When = LocalDate.now()
         Who.add("Kevin")
-    }.create()
+    }.create()*/
+
+    Meeting().use {
+         it.create()
+    }
 }
 
 // strategy pattern using higher order function 
