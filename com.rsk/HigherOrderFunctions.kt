@@ -13,7 +13,8 @@ fun main() {
     })
     //fibonacci3(8, {n -> println(n)})
     //fibonacci3(8, {println(it)})
-    fibonacci3(8) {println(it)}
+    //fibonacci3(8) {println(it)}
+    fibonacci3(8, ::println)
 }
 
 // strategy pattern using higher order function 
