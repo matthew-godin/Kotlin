@@ -11,7 +11,8 @@ fun main() {
             println(value)
         }
     })
-    fibonacci3(8, {n -> println(n)})
+    //fibonacci3(8, {n -> println(n)})
+    fibonacci3(8, {println(it)})
 }
 
 // strategy pattern using higher order function 
