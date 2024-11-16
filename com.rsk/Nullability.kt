@@ -27,4 +27,12 @@ fun main() {
 
     // makes sure can call toString at compilation time
     println(num!!.toString())
+
+    if (name2 != null) {
+        println(name2.toString())
+    }
+
+    name2?.let {
+        println(name2.toString())
+    }
 }
