@@ -22,4 +22,9 @@ fun main() {
     name2 = num as? String
 
     println(name2)
+
+    val num2: Int? = null
+
+    // makes sure can call toString at compilation time
+    println(num!!.toString())
 }
