@@ -15,4 +15,9 @@ fun main() {
     for ((i, v) in people) {
         println("$i -> $v")
     }
+
+    val anyGreaterThan1 = numbers.any { it > 1 }
+    // can also use .all
+
+    println(anyGreaterThan1)
 }
