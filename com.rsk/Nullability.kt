@@ -40,4 +40,12 @@ fun main() {
 
     address = "23232"
     println(address.toString())
+
+    // Java Annotations
+    // at top of Utils.kt
+    // @file:JvmName("Utils")
+    // inside companion object method
+    // @JvmStatic
+    // to expose a property as a field in the Java space
+    // @JvmField
 }
