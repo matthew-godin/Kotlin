@@ -20,4 +20,16 @@ fun main() {
     // can also use .all
 
     println(anyGreaterThan1)
+
+    val largerThan1 = numbers.filter { it > 1 }
+
+    for (num in largerThan1) {
+        println(num)
+    }
+
+    val multipliedBy50 = numbers.map { it * 50 }
+
+    for (num in multipliedBy50) {
+        println(num)
+    }
 }
