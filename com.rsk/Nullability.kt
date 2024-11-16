@@ -35,4 +35,9 @@ fun main() {
     name2?.let {
         println(name2.toString())
     }
+
+    lateinit var address: String
+
+    address = "23232"
+    println(address.toString())
 }
