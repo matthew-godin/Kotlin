@@ -13,4 +13,15 @@ class Envelope<T>(val result: T?, val message: String?) where T:List<Any?> {
     }
 }
 
-class Person
+fun useProducer(producer: Producer<Student>) : Person {
+    val personProducer: Producer<Person> = producer
+    return producer.next()
+}
+
+interface Producer<out T> {
+    fun next() : T
+}
+
+open class Person
+
+class Student : Person( )
