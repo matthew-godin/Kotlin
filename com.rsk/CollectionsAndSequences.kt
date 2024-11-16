@@ -32,4 +32,21 @@ fun main() {
     for (num in multipliedBy50) {
         println(num)
     }
+
+    // sequences are like lists but more performant
+    // use them if the collection contains a lot of values
+
+    val nums = listOf(4, 3, 5, 2, 67, 555, 3, 2, 44, 3)
+        .asSequence()
+        .filter {
+            println("filter: $it")
+            it > 9
+        }
+        .map {
+            println("map: $it")
+            it * 4
+        }
+        .take(3)
+        .joinToString(",")
+    println(nums)
 }
