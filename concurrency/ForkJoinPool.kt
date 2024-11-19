@@ -1,9 +1,25 @@
 import kotlin.system.measureTimeMillis
 import java.util.concurrent.ForkJoinPool
 import java.util.concurrent.RecursiveTask
+import kotlin.coroutines.coroutineScope
 
 val LIMIT = 50_000_000
 val SEQUENTIAL_THRESHOLD = LIMIT / 19
+
+suspend fun compute(array: IntArray, start: Int, end: Int): Long = coroutineScope {
+    //println("start: $start, end: $end on ${Thread.currentThread().name}")
+    return if (end - start <= SEQUENTIAL_THRESHOLD) {
+        (start until end)
+            .asSequence()
+            .map { array[it] }
+            .sum().toLong()
+    } else {
+        val mid = start + (end - start) / 2
+        val left = async(Dispatchers.Default) { compute(array, start, mid) }
+        val right = async(Dispatchers.Default) { compute(array, mid, end) }
+        return left.await() + right.await()
+    }
+}
 
 internal class Sum(private var values: List<Int>, private var low: Int, private var high: Int) : RecursiveTask<Long>() {
     override fun compute(): Long {
@@ -35,7 +51,7 @@ internal class Sum(private var values: List<Int>, private var low: Int, private 
     }
 }
 
-fun compute(array: IntArray, start: Int, end: Int): Long {
+/*fun compute(array: IntArray, start: Int, end: Int): Long {
     //println("start: $start, end: $end on ${Thread.currentThread().name}")
     return if (end - start <= SEQUENTIAL_THRESHOLD) {
         (start until end)
@@ -48,7 +64,7 @@ fun compute(array: IntArray, start: Int, end: Int): Long {
         val right = compute(array, mid, end)
         return left + right
     }
-}
+}*/
 
 fun main() {
     val list = mutableListOf<Int>()
